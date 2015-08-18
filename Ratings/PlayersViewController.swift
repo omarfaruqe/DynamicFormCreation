@@ -47,15 +47,25 @@ class PlayersViewController: UITableViewController {
     return players.count
   }
   
-  override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath)
-    -> UITableViewCell {
-      let cell = tableView.dequeueReusableCellWithIdentifier("PlayerCell", forIndexPath: indexPath)
-        as! PlayerCell
+  override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+      let cell = tableView.dequeueReusableCellWithIdentifier("PlayerCell", forIndexPath: indexPath) as! PlayerCell
       
       let player = players[indexPath.row] as Player
       cell.nameLabel.text = player.name
       cell.gameLabel.text = player.game
       cell.ratingImageView.image = imageForRating(player.rating)
+    
+    var txtField: UITextField = UITextField(frame: CGRect(x: 0, y: 0, width: 500.00, height: 30.00));
+    
+    if player.game == "Text" {
+        txtField.placeholder = "Text Form"
+    }
+    else {
+        txtField.placeholder = "Other Form"
+    }
+    txtField.enabled = false
+    cell.actualFormItem.addSubview(txtField)
+    
       return cell
   }
     

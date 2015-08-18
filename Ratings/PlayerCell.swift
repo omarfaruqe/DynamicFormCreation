@@ -13,6 +13,7 @@ class PlayerCell: UITableViewCell {
   @IBOutlet weak var gameLabel: UILabel!
   @IBOutlet weak var nameLabel: UILabel!
   @IBOutlet weak var ratingImageView: UIImageView!
+  @IBOutlet weak var actualFormItem: UIView!
   
   override func awakeFromNib() {
     super.awakeFromNib()
