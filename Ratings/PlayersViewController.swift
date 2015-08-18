@@ -3,6 +3,7 @@
 //  Ratings
 
 import UIKit
+import XLForm
 
 class PlayersViewController: UITableViewController {
   
@@ -56,15 +57,30 @@ class PlayersViewController: UITableViewController {
       cell.ratingImageView.image = imageForRating(player.rating)
     
     var txtField: UITextField = UITextField(frame: CGRect(x: 0, y: 0, width: 500.00, height: 30.00));
-    
-    if player.game == "Text" {
-        txtField.placeholder = "Text Form"
-    }
-    else {
-        txtField.placeholder = "Other Form"
-    }
-    txtField.enabled = false
+    txtField.placeholder = ""
+    txtField.text = ""
+    txtField.placeholder = "\(player.game) Form"
+ 
+    //txtField.enabled = true
     cell.actualFormItem.addSubview(txtField)
+    
+//    
+//    var form : XLFormDescriptor
+//    var section : XLFormSectionDescriptor
+//    var row : XLFormRowDescriptor
+//    
+//    form = XLFormDescriptor(title: "Dates") as XLFormDescriptor
+//    
+//    section = XLFormSectionDescriptor.formSectionWithTitle("Inline Dates") as XLFormSectionDescriptor
+//    form.addFormSection(section)
+//    
+//    // Date
+//    row = XLFormRowDescriptor(tag: "datetag", rowType: XLFormRowDescriptorTypeDateInline, title:"Date")
+//    row.value = NSDate()
+//    section.addFormRow(row)
+//    
+//    cell.actualFormItem.addSubview(form)
+//    //self.form = form;
     
       return cell
   }
