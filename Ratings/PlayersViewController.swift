@@ -1,10 +1,6 @@
 //
 //  PlayersViewController.swift
 //  Ratings
-//
-//  Created by Caroline Begbie on 15/04/2015.
-//  Copyright (c) 2015 Caroline Begbie. All rights reserved.
-//
 
 import UIKit
 
@@ -62,6 +58,15 @@ class PlayersViewController: UITableViewController {
       cell.ratingImageView.image = imageForRating(player.rating)
       return cell
   }
+    
+    
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == UITableViewCellEditingStyle.Delete {
+            players.removeAtIndex(indexPath.row) //langData is array from i delete values
+            tableView.deleteRowsAtIndexPaths([indexPath],  withRowAnimation: UITableViewRowAnimation.Automatic)
+        }
+    }
+    
   
   func imageForRating(rating:Int) -> UIImage? {
     switch rating {
